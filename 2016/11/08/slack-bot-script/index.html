@@ -1,0 +1,639 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="slackbot,python," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="A simple slackbot script includes: greeting, randomly replying with lyrics">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SlackBot source code">
+<meta property="og:url" content="http://yoursite.com/2016/11/08/slack-bot-script/index.html">
+<meta property="og:site_name" content="Journey.">
+<meta property="og:description" content="A simple slackbot script includes: greeting, randomly replying with lyrics">
+<meta property="og:updated_time" content="2016-11-08T22:52:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SlackBot source code">
+<meta name="twitter:description" content="A simple slackbot script includes: greeting, randomly replying with lyrics">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/11/08/slack-bot-script/"/>
+
+
+  <title> SlackBot source code | Journey. </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Journey.</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                SlackBot source code
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-11-08T16:45:30-06:00" content="2016-11-08">
+              2016-11-08
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/08/slack-bot-script/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/08/slack-bot-script/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>A simple slackbot script includes: greeting, randomly replying with lyrics<br><a id="more"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div></pre></td><td class="code"><pre><div class="line">#!/usr/bin/python</div><div class="line"># -*- coding: utf-8 -*-</div><div class="line">import os</div><div class="line">import time</div><div class="line">import random</div><div class="line">from time import gmtime, strftime</div><div class="line">from slackclient import SlackClient</div><div class="line"></div><div class="line"></div><div class="line">BOT_TOKEN = os.environ.get(&apos;SLACK_BOT_TOKEN&apos;)</div><div class="line">CHANNEL_NAME = &quot;general&quot;</div><div class="line"># greeting = &quot;Hello, nice to meet you.&quot;</div><div class="line">greeting = &quot;你好我是你的小小小小机器人。&quot;</div><div class="line">resp_dir = &#123;</div><div class="line">&apos;hello&apos;: &quot;Hola. Hallo. 你好.&quot;,</div><div class="line">&apos;chat&apos;: &quot;What do you want to chat about?&quot;,</div><div class="line">&apos;time&apos;: &quot;Now is &quot; + strftime(&quot;%Y-%m-%d %H:%M:%S&quot;, gmtime()) + &quot;.&quot;,</div><div class="line">&apos;bye&apos;: &quot;Bye!&quot;, </div><div class="line">&apos;name&apos;: &quot;My name is A BOT.&quot;,</div><div class="line">&#125;</div><div class="line"></div><div class="line">lyrics_data = [</div><div class="line">	&apos;我唱着一首单纯的歌, 而你就是那一再重复的和弦. &apos;,</div><div class="line">	&apos;我想了一整夜关于未来的情节. &apos;,</div><div class="line">	&apos;我提着一个简简单单的行李, 要安静走出对你的狂恋. &apos;,</div><div class="line">	&apos;让我想一想. &apos;,</div><div class="line">	&apos;失去了语言, 失去了一字一句的空间. &apos;,</div><div class="line">	&apos;该如何面对你温柔眼神, 当心中有了疑问. &apos;,</div><div class="line">	&apos;真心退缩在黑暗角落. &apos;,</div><div class="line">	&apos;该如何倾听你温柔声音, 它并不只属于我. &apos;,</div><div class="line">	&apos;迎着微微的风像微微的你, 躲着凉凉的雨像凉凉的你. &apos;,</div><div class="line">	&apos;会不会. &apos;,</div><div class="line">	&apos;红的唇白的脸, 灰色的午夜. &apos;,</div><div class="line">	&apos;我想今夜就这样吧. &apos;,</div><div class="line">	&apos;冷的心热的泪, 空白的想念. &apos;,</div><div class="line">	&apos;就像电影散场的时候, 刹那间遗忘的剧情. &apos;,</div><div class="line">	&apos;改不掉依赖深夜的习惯. &apos;,</div><div class="line">	&apos;阻挡不了滥用你给我的自由. &apos;,</div><div class="line">	&apos;和你在一起. &apos;,</div><div class="line">	&apos;夜已晚的很美丽, 天已亮的很分明. &apos;,</div><div class="line">	&apos;我在你的回忆里, 是黄昏还是黎明. &apos;,</div><div class="line">	&apos;没有人能够代替. &apos;,</div><div class="line">	&apos;漫漫长夜. &apos;,</div><div class="line">	&apos;就算全世界与我为敌. &apos;,</div><div class="line">	&apos;我要让所有虚伪的人都看清自己. &apos;,</div><div class="line">	&apos;我只是不愿意这样开口, 害怕你在电话线的那头泪流. &apos;,</div><div class="line">	&apos;我的骄傲无可救药. &apos;,</div><div class="line">	&apos;别对我小心翼翼, 别让我看清你. &apos;,</div><div class="line">	&apos;越靠近越遥远, 感觉越安全越危险. &apos;,</div><div class="line">	&apos;我要吃掉你的坏情绪, 吃掉你的坏脾气. &apos;,</div><div class="line">	&apos;等待是白色的梦一般, 沉淀在咖啡杯最深处. &apos;,</div><div class="line">	&apos;等待是白色的烟雾般, 飘散在记忆的最深处. &apos;,</div><div class="line">	&apos;告诉我. &apos;,</div><div class="line">	&apos;是什么在脑海挥之不去, 是什么在黑夜扑朔迷离. &apos;,</div><div class="line">	&apos;再多的等待也只是空白, 再多的空白也不能将你掩埋. &apos;,</div><div class="line">	&apos;也许是偶然我被你深深宠爱, 也许是偶然你将我遗忘. &apos;,</div><div class="line">	&apos;失去了你, 美丽只是面具. &apos;,</div><div class="line">	&apos;失去了你, 善变只是游戏. &apos;,</div><div class="line">	&apos;失去你, 流浪只是逃避. &apos;,</div><div class="line">	&apos;失去你, 爱情只是潮汐. &apos;,</div><div class="line">	&apos;&quot;你知道吗, 我其实很羡慕你. &quot;&apos;,</div><div class="line">	&apos;我还是如此的清醒. &apos;,</div><div class="line">	&apos;窗外的星空像你, 嬉笑不眠. &apos;,</div><div class="line">	&apos;你目眩神迷说不知道, 只显得可笑. &apos;,</div><div class="line">	&apos;你双手插口袋垫起脚, 一切看来美好. &apos;,</div><div class="line">	&apos;遥远的距离都是因为太过聪明. &apos;,</div><div class="line">	&apos;要猜着你的心, 要再一次确定, 混乱的思绪都是因为太想靠近你. &apos;,</div><div class="line">	&apos;只是怕亲手将我的真心葬送. &apos;,</div><div class="line">	&apos;在你心里我也许只是你欣赏的风景. &apos;,</div><div class="line">	&apos;空荡的房间我播放着舞曲, 旋转这一秒的孤寂. &apos;,</div><div class="line">	&apos;我的冬天, 就要来了. &apos;,</div><div class="line">	&apos;不想和别人享用, 你每一个小动作. &apos;,</div><div class="line">	&apos;透明的玻璃窗沾满小尘埃. &apos;,</div><div class="line">	&apos;张开眼睛, 陌生人寄来一封信. &apos;,</div><div class="line">	&apos;我在这里, 我在你昨天的梦里. &apos;,</div><div class="line">	&apos;我的好, 我的坏, 钥匙还在口袋, 你一样都不带走. &apos;,</div><div class="line">	&apos;Maybe I am a freak. &apos;,</div><div class="line">	&apos;Please, save me. &apos;,</div><div class="line">	&apos;你离开我, 就是旅行的意义. &apos;,</div><div class="line">	&apos;我的玩具就是我自己. &apos;,</div><div class="line">	&apos;深埋土里被剥夺的能力. &apos;,</div><div class="line">	&apos;喜欢一个人孤独的时刻, 但不能喜欢太多. &apos;,</div><div class="line">	&apos;我们轻轻的挥一挥手, 凝结照片的伤口. &apos;,</div><div class="line">	&apos;花的姿态. &apos;,</div><div class="line">	&apos;是我拒绝你已清醒的双眼, 是我召唤你眼底的错觉. &apos;,</div><div class="line">	&apos;再一次让我尝尽犯错的甜美, 甜美瞬间. &apos;,</div><div class="line">	&apos;是你带我经过纯洁的瞬间, 无悔无邪. &apos;,</div><div class="line">	&apos;表面的和平. &apos;,</div><div class="line">	&apos;我曾经凝视你, 你眼睛里的热情. &apos;,</div><div class="line">	&apos;为了不让你伤心, 伤了我的心. &apos;,</div><div class="line">	&apos;I had a cat. &apos;,</div><div class="line">	&apos;脱掉我的羽毛背心, 赤裸拥抱你. &apos;,</div><div class="line">	&apos;失败者的飞翔. &apos;,</div><div class="line">	&apos;你的影子巨大, 像喧嚣的脏话. &apos;,</div><div class="line">	&apos;手掌留住了风, 握不住一粒沙. &apos;,</div><div class="line">	&apos;我的左手是猫, 右手是抚慰的力量. &apos;,</div><div class="line">	&apos;太阳. &apos;,</div><div class="line">	&apos;我热切地希望, 能在消失之前得到信仰. &apos;,</div><div class="line">	&apos;曾经狂奔、舞蹈、贪婪地说话. &apos;,</div><div class="line">	&apos;如果有一个世界混浊的不像话, 我会疯狂地爱上. &apos;,</div><div class="line">	&apos;距离. &apos;,</div><div class="line">	&apos;你眼中的孤寂, 是我在找寻的岛屿. &apos;,</div><div class="line">	&apos;一首歌, 让你带回去. &apos;,</div><div class="line">	&apos;每天都是一种练习. &apos;,</div><div class="line">	&apos;快乐的气氛也许能暂时逃避, 却又让伤害更彻底. &apos;,</div><div class="line">	&apos;一条发光的公路, 两边都是梧桐树. &apos;,</div><div class="line">	&apos;你送给我的信, 大部份我都看不懂. &apos;,</div><div class="line">	&apos;时间是荒废的心, 活着时不懂怜悯. &apos;,</div><div class="line">	&apos;时间是死亡的河, 解剖后没有记忆. &apos;,</div><div class="line">	&apos;时间是熟睡的脸, 说着梦的语言. &apos;,</div><div class="line">	&apos;你带我走进漩涡, 没有出口. &apos;,</div><div class="line">	&apos;柏拉图式的责任, 捆绑柏拉图式的温柔. &apos;,</div><div class="line">	&apos;Peace and Revolution. &apos;,</div><div class="line">	&apos;一颗一颗雨水都落在盒子里了. &apos;,</div><div class="line">	&apos;失去的乐园, 暂停的欢笑, 沮丧的气球离天空越来越远. &apos;,</div><div class="line">	&apos;从容的我遇见从容的你, 在一个慌张失措的年纪. &apos;,</div><div class="line">	&apos;她会说, 谢谢你爱她, 像大海爱著浪花. &apos;,</div><div class="line">	&apos;不完美的时候, 记得我在你左右. &apos;,</div><div class="line">	&apos;白天伪装, 晚上卸下, 疲倦的心要藏在哪. &apos;]</div><div class="line"></div><div class="line">def response(message):</div><div class="line">	message = message.lower()</div><div class="line">	for key, value in resp_dir.items():</div><div class="line">		if key in message:</div><div class="line">			return value</div><div class="line">	return random.choice(lyrics_data)</div><div class="line"></div><div class="line"></div><div class="line">if __name__ == &apos;__main__&apos;:</div><div class="line">	# create slack bot instance</div><div class="line">	sc = SlackClient(os.environ.get(&apos;SLACK_BOT_TOKEN&apos;))</div><div class="line"></div><div class="line">	# connect to slack</div><div class="line">	if sc.rtm_connect():</div><div class="line">		#send first message</div><div class="line">		# sc.rtm_send_message(&quot;general&quot;, &quot;I&apos;m ALIVE!!&quot;)</div><div class="line">		sc.rtm_send_message(&quot;general&quot;, greeting)</div><div class="line"></div><div class="line">		while True:</div><div class="line">			# read latest messages</div><div class="line">			for slack_message in sc.rtm_read():</div><div class="line">				message = slack_message.get(&quot;text&quot;)</div><div class="line">				user = slack_message.get(&quot;user&quot;)</div><div class="line">				if not message or not user:</div><div class="line">					continue</div><div class="line">				sc.rtm_send_message(CHANNEL_NAME, response(message) + &quot;&lt;@&#123;&#125;&gt;&quot;.format(user))</div><div class="line">				message = &quot;&quot;</div><div class="line">			# sleep for half second</div><div class="line">			time.sleep(0.5)</div><div class="line">	else:</div><div class="line">		print(&quot;Connection failed, invalid bot token or networking error.&quot;)</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/slackbot/" rel="tag">#slackbot</a>
+          
+            <a href="/tags/python/" rel="tag">#python</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/08/aws-database-error/" rel="next" title="AWS | Error Establishing a Database Connection">
+                <i class="fa fa-chevron-left"></i> AWS | Error Establishing a Database Connection
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/110878850704fec6e3o.jpg"
+               alt="Keli Cheng" />
+          <p class="site-author-name" itemprop="name">Keli Cheng</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/kelicheng" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/shuiyunqinghe" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">This post does not have a Table of Contents</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Keli Cheng</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'liebesbrief';
+      var disqus_identifier = '2016/11/08/slack-bot-script/';
+      var disqus_title = "SlackBot source code";
+      var disqus_url = 'http://yoursite.com/2016/11/08/slack-bot-script/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        var disqus_config = function () {
+            this.page.url = disqus_url;
+            this.page.identifier = disqus_identifier;
+            this.page.title = disqus_title;
+        };
+        run_disqus_script('embed.js');
+      
+    </script>
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

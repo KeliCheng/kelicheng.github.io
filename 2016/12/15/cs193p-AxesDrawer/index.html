@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="log," />
+  <meta name="keywords" content="Swift,graphing calculator,debug,Xcode,iOS,cs193p," />
 
 
 
@@ -84,16 +84,21 @@
 
 
 
-<meta name="description" content="2016.11.07 built blog with Hexo; theme: NexT">
+<meta name="description" content="Issue: cs193p Assignment 3, the simulator is blank when calling AxesDrawer
+Intro: I’m taking the Standford University’s cs193p course, Developing iOS 9 Apps with Swift, through iTunesU. The course is">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Log">
-<meta property="og:url" content="http://yoursite.com/2016/11/08/log/index.html">
+<meta property="og:title" content="cs193p | AxesDrawer to Swift 3.0">
+<meta property="og:url" content="http://yoursite.com/2016/12/15/cs193p-AxesDrawer/index.html">
 <meta property="og:site_name" content="Journey.">
-<meta property="og:description" content="2016.11.07 built blog with Hexo; theme: NexT">
-<meta property="og:updated_time" content="2016-11-08T22:19:51.000Z">
+<meta property="og:description" content="Issue: cs193p Assignment 3, the simulator is blank when calling AxesDrawer
+Intro: I’m taking the Standford University’s cs193p course, Developing iOS 9 Apps with Swift, through iTunesU. The course is">
+<meta property="og:image" content="http://i1060.photobucket.com/albums/t442/Liebesbrief/Screen%20Shot%202016-12-15%20at%2015.05.59_zpsogh7e9uv.png">
+<meta property="og:updated_time" content="2016-12-15T21:16:05.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Log">
-<meta name="twitter:description" content="2016.11.07 built blog with Hexo; theme: NexT">
+<meta name="twitter:title" content="cs193p | AxesDrawer to Swift 3.0">
+<meta name="twitter:description" content="Issue: cs193p Assignment 3, the simulator is blank when calling AxesDrawer
+Intro: I’m taking the Standford University’s cs193p course, Developing iOS 9 Apps with Swift, through iTunesU. The course is">
+<meta name="twitter:image" content="http://i1060.photobucket.com/albums/t442/Liebesbrief/Screen%20Shot%202016-12-15%20at%2015.05.59_zpsogh7e9uv.png">
 
 
 
@@ -114,10 +119,10 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/11/08/log/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/12/15/cs193p-AxesDrawer/"/>
 
 
-  <title> Log | Journey. </title>
+  <title> cs193p | AxesDrawer to Swift 3.0 | Journey. </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="en">
@@ -247,7 +252,7 @@
             
             
               
-                Log
+                cs193p | AxesDrawer to Swift 3.0
               
             
           </h1>
@@ -259,8 +264,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-11-08T16:18:21-06:00" content="2016-11-08">
-              2016-11-08
+            <time itemprop="dateCreated" datetime="2016-12-15T14:38:26-06:00" content="2016-12-15">
+              2016-12-15
             </time>
           </span>
 
@@ -270,8 +275,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/11/08/log/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/08/log/" itemprop="commentsCount"></span>
+                <a href="/2016/12/15/cs193p-AxesDrawer/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/12/15/cs193p-AxesDrawer/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -294,7 +299,26 @@
       
 
       
-        <p>2016.11.07 built blog with Hexo; theme: NexT</p>
+        <p>Issue: cs193p Assignment 3, the simulator is blank when calling AxesDrawer</p>
+<p>Intro: I’m taking the Standford University’s cs193p course, Developing iOS 9 Apps with Swift, through iTunesU. The course is for Spring 2016, but Swift has updated to 3.0 in October. Thus parts of the source code provided need to be updated manually. Most of this correction can be done with Xcode’s warning and suggestion, but there are still some tricky pieces. </p>
+<p>I was working on Assignment III, Graphing Calculator. It provided the AxesDrawer.swift to help draw the axes. Here is what I did to fix some issues when converting it to Swift 3.0. </p>
+<ol>
+<li><p>put the file in the Calculator folder </p>
+</li>
+<li><p>fix most warning with Xcode suggestions </p>
+</li>
+<li><p><strong>line 97</strong><br><code>let label = formatter.stringFromNumber((origin.x-bbox.minX)/pointsPerUnit)!</code><br>the warning shows “no / candidates produce the expected contextual”<br>replace it with:<br><code>let label = formatter.string(from: (origin.x-bbox.minX)/pointsPerUnit as NSNumber)!</code></p>
+</li>
+<li><p>call AxesDrawer in GraphView</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">let drawer = AxesDrawer(contentScaleFactor: contentScaleFactor)</div><div class="line">drawer.drawAxesInRect(bounds: bounds, origin: origin, pointsPerUnit: scale)</div></pre></td></tr></table></figure>
+<p>Unfortunately, it doesn’t work. The simulator is blank, even the back arrow is missing. The problem is because drawAxesInRect is calling drawHashmarksInRect, and the while loop at the end of drawHashmarksInRect is causing an infinite loop. </p>
+<ol>
+<li>Through looking at the code, I found that the infinite loop is because the bbox was not updated with insetBy.<br>So, <strong>fixing the last line of drawHashmarksInRect</strong> with:<br><code>bbox = bbox.insetBy(dx: -pointsPerHashmark, dy: -pointsPerHashmark)</code></li>
+</ol>
+<p>Finally, the AxesDrawer works perfectly.<br><a href="http://s1060.photobucket.com/user/Liebesbrief/media/Screen%20Shot%202016-12-15%20at%2015.05.59_zpsogh7e9uv.png.html" target="_blank"><img src="http://i1060.photobucket.com/albums/t442/Liebesbrief/Screen%20Shot%202016-12-15%20at%2015.05.59_zpsogh7e9uv.png" border="0" alt=" photo Screen Shot 2016-12-15 at 15.05.59_zpsogh7e9uv.png"></a></p>
+<p>I’m writing this post because I didn’t find a similar situation through searching. If you are also taking this Spring course, or have some trouble converting a file to Swift 3.0, or facing a blank simulator, hope this will give you some idea. Thanks. </p>
 
       
     </div>
@@ -317,7 +341,17 @@
       
         <div class="post-tags">
           
-            <a href="/tags/log/" rel="tag">#log</a>
+            <a href="/tags/Swift/" rel="tag">#Swift</a>
+          
+            <a href="/tags/graphing-calculator/" rel="tag">#graphing calculator</a>
+          
+            <a href="/tags/debug/" rel="tag">#debug</a>
+          
+            <a href="/tags/Xcode/" rel="tag">#Xcode</a>
+          
+            <a href="/tags/iOS/" rel="tag">#iOS</a>
+          
+            <a href="/tags/cs193p/" rel="tag">#cs193p</a>
           
         </div>
       
@@ -326,17 +360,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/08/AWS-cannot-log-into-instance/" rel="next" title="AWS | 无法登入 Instance 解决办法">
-                <i class="fa fa-chevron-left"></i> AWS | 无法登入 Instance 解决办法
+              <a href="/2016/11/08/slack-bot-script/" rel="next" title="SlackBot source code">
+                <i class="fa fa-chevron-left"></i> SlackBot source code
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/11/08/aws-database-error/" rel="prev" title="AWS | Error Establishing a Database Connection">
-                AWS | Error Establishing a Database Connection <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -597,9 +627,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'liebesbrief';
-      var disqus_identifier = '2016/11/08/log/';
-      var disqus_title = "Log";
-      var disqus_url = 'http://yoursite.com/2016/11/08/log/';
+      var disqus_identifier = '2016/12/15/cs193p-AxesDrawer/';
+      var disqus_title = "cs193p | AxesDrawer to Swift 3.0";
+      var disqus_url = 'http://yoursite.com/2016/12/15/cs193p-AxesDrawer/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');

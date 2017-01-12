@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next pisces use-motion">
+<html class="theme-next mist use-motion">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -96,7 +96,7 @@
 <script type="text/javascript" id="hexo.configuration">
   var NexT = window.NexT || {};
   var CONFIG = {
-    scheme: 'Pisces',
+    scheme: 'Mist',
     sidebar: {"position":"left","display":"post"},
     fancybox: true,
     motion: true,
@@ -178,6 +178,16 @@
         </li>
       
         
+        <li class="menu-item menu-item-projects">
+          <a href="/categories/projects" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-flask"></i> <br />
+            
+            menu.projects
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-about">
           <a href="/about" rel="section">
             
@@ -224,6 +234,125 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/01/12/graphing-calculator/" itemprop="url">
+                  Graphing Calculator
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2017-01-12T00:14:11-06:00" content="2017-01-12">
+              2017-01-12
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/projects/" itemprop="url" rel="index">
+                    <span itemprop="name">projects</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/01/12/graphing-calculator/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/01/12/graphing-calculator/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
     
       
 
@@ -297,17 +426,11 @@
       
         
           
+            <ol>
+<li>StanfordU CS193P Spring 2016<br>finished projects:<br>Graphing Calculator<br>Smashtag<br>Breakout<br>……</li>
+</ol>
+
           
-StanfordU CS193P Spring 2016finished projects:Graphing CalculatorSmashtagBreakout……
-
-
-          
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/01/10/iOS-learning-process/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
         
       
     </div>
@@ -406,16 +529,15 @@ StanfordU CS193P Spring 2016finished projects:Graphing CalculatorSmashtagBreakou
       
         
           
-          Domain: example.comBlog: build with Hexo, hosted on GithubPages (example.github.io)
+            <p>Domain: example.com<br>Blog: build with Hexo, hosted on GithubPages (example.github.io)</p>
+<ol>
+<li><p>create CNAME file uder the “source” directory (not the root dir)<br>within the CNAME file, write “<strong>http://</strong>example.com”<br>save it, generate (hexo g) and deploy (hexo d) to Github Pages </p>
+</li>
+<li><p>go to GoDaddy DNS Manager of domain “example.com”<br>add new records:<br> •    Hostname: @, Record Type: A, Value: 192.30.252.153<br> •    Hostname: @, Record Type: A, Value: 192.30.252.154<br> •    Hostname: www, Record Type: CNAME, Value: example.github.io</p>
+</li>
+</ol>
 
-create CNAME file uder the “source” directory (not the root dir)w
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/01/10/Hexo-GithubPages-GoDaddy/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
+          
         
       
     </div>
@@ -514,15 +636,28 @@ create CNAME file uder the “source” directory (not the root dir)w
       
         
           
-          Issue: cs193p Assignment 3, the simulator is blank when calling AxesDrawer
-Intro: I’m taking the Standford University’s cs193p course, Developing iOS 
-          ...
+            <p>Issue: cs193p Assignment 3, the simulator is blank when calling AxesDrawer</p>
+<p>Intro: I’m taking the Standford University’s cs193p course, Developing iOS 9 Apps with Swift, through iTunesU. The course is for Spring 2016, but Swift has updated to 3.0 in October. Thus parts of the source code provided need to be updated manually. Most of this correction can be done with Xcode’s warning and suggestion, but there are still some tricky pieces. </p>
+<p>I was working on Assignment III, Graphing Calculator. It provided the AxesDrawer.swift to help draw the axes. Here is what I did to fix some issues when converting it to Swift 3.0. </p>
+<ol>
+<li><p>put the file in the Calculator folder </p>
+</li>
+<li><p>fix most warning with Xcode suggestions </p>
+</li>
+<li><p><strong>line 97</strong><br><code>let label = formatter.stringFromNumber((origin.x-bbox.minX)/pointsPerUnit)!</code><br>the warning shows “no / candidates produce the expected contextual”<br>replace it with:<br><code>let label = formatter.string(from: (origin.x-bbox.minX)/pointsPerUnit as NSNumber)!</code></p>
+</li>
+<li><p>call AxesDrawer in GraphView</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">let drawer = AxesDrawer(contentScaleFactor: contentScaleFactor)</div><div class="line">drawer.drawAxesInRect(bounds: bounds, origin: origin, pointsPerUnit: scale)</div></pre></td></tr></table></figure>
+<p>Unfortunately, it doesn’t work. The simulator is blank, even the back arrow is missing. The problem is because drawAxesInRect is calling drawHashmarksInRect, and the while loop at the end of drawHashmarksInRect is causing an infinite loop. </p>
+<ol>
+<li>Through looking at the code, I found that the infinite loop is because the bbox was not updated with insetBy.<br>So, <strong>fixing the last line of drawHashmarksInRect</strong> with:<br><code>bbox = bbox.insetBy(dx: -pointsPerHashmark, dy: -pointsPerHashmark)</code></li>
+</ol>
+<p>Finally, the AxesDrawer works perfectly.<br><a href="http://s1060.photobucket.com/user/Liebesbrief/media/Screen%20Shot%202016-12-15%20at%2015.05.59_zpsogh7e9uv.png.html" target="_blank"><img src="http://i1060.photobucket.com/albums/t442/Liebesbrief/Screen%20Shot%202016-12-15%20at%2015.05.59_zpsogh7e9uv.png" border="0" alt=" photo Screen Shot 2016-12-15 at 15.05.59_zpsogh7e9uv.png"></a></p>
+<p>I’m writing this post because I didn’t find a similar situation through searching. If you are also taking this Spring course, or have some trouble converting a file to Swift 3.0, or facing a blank simulator, hope this will give you some idea. Thanks. </p>
 
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/12/15/cs193p-AxesDrawer/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
+          
         
       
     </div>
@@ -724,14 +859,10 @@ Intro: I’m taking the Standford University’s cs193p course, Developing iOS
       
         
           
-          “Error Establishing a Database Connection” – a common error with Wordpress blog deployed in AWSSolution: log into the server and restart database12sud
-          ...
+            <p>“Error Establishing a Database Connection” – a common error with Wordpress blog deployed in AWS<br>Solution: log into the server and restart database<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo service mysqld stop</div><div class="line">sudo service mysqld start</div></pre></td></tr></table></figure></p>
+<p>DONE! </p>
 
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/11/08/aws-database-error/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
+          
         
       
     </div>
@@ -830,15 +961,9 @@ Intro: I’m taking the Standford University’s cs193p course, Developing iOS
       
         
           
-          2016.11.07 built blog with Hexo; theme: NexT
+            <p>2016.11.07 built blog with Hexo; theme: NexT</p>
 
           
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/11/08/log/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
         
       
     </div>
@@ -937,17 +1062,39 @@ Intro: I’m taking the Standford University’s cs193p course, Developing iOS
       
         
           
-          适用类型：
+            <p><strong>适用类型：</strong></p>
+<ul>
+<li>pem文件丢失</li>
+<li>擅改home directory权限导致无法登录 （<em>Note: 如果group拥有对home的写入及运行权限，ssh将无法登入，保险权限为700或755，详见这个问题下的讨论：<a href="http://unix.stackexchange.com/questions/37164/ssh-and-home-directory-permissions" target="_blank" rel="external">http://unix.stackexchange.com/questions/37164/ssh-and-home-directory-permissions</a></em>）</li>
+</ul>
+<p>已有 Instance A<br>［Permission denied (publickey)］</p>
+<p><strong>解决办法：</strong></p>
+<ol>
+<li>新建Instance B，基本设置与A相同。</li>
+<li>如果丢失 pem 文件，新建 key-pair 并下载pem文件</li>
+<li>stop Instance A; 进入 volumn tab –&gt; detach </li>
+<li>volumn attach 到 B</li>
+<li>登入Instance B；在 root directory 下新建 mount point (ex: /vol-a)  并mount </li>
+</ol>
+<figure class="highlight plain"><figcaption><span>[instance b]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo mkdir /vol-a</div><div class="line">sudo mount /dev/xvdj /vol-a</div></pre></td></tr></table></figure>
+<p><em>Note：volumn可能保存在 xvdj、xvdj1、xvda、sxda1、或 sdf </em></p>
+<ol>
+<li><p>进入 vol-a 作出所需修改<br> *丢失pem文件：将正确的ssh key添加到：/vol-a/home/ubuntu/.ssh/authorized_keys</p>
+<ul>
+<li>更改home dir （或者 ec2-user）的权限至700 </li>
+<li>etc. </li>
+</ul>
+</li>
+<li><p>unmount </p>
+</li>
+</ol>
+<figure class="highlight plain"><figcaption><span>umount</span><a href="/vol-a">link</a></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo rmdir /vol-a</div></pre></td></tr></table></figure>
+<ol>
+<li>deatch volumn from Instance B; Attach back to Instance A.<br>Start Instance A;<br>Terminate Instance B. </li>
+</ol>
+<p>参考：<br><a href="https://alestic.com/2011/02/ec2-fix-ebs-root/" target="_blank" rel="external">https://alestic.com/2011/02/ec2-fix-ebs-root/</a><br><a href="http://d2930476l2fsmh.cloudfront.net/LostKeypairRecoveryOfLinuxInstance.mp4" target="_blank" rel="external">http://d2930476l2fsmh.cloudfront.net/LostKeypairRecoveryOfLinuxInstance.mp4</a><br><a href="https://forums.aws.amazon.com/message.jspa?messageID=334402" target="_blank" rel="external">https://forums.aws.amazon.com/message.jspa?messageID=334402</a></p>
 
-pem文件丢失
-擅改home directory权限导致无法登录 （Note: 如果group拥有对home的写入及运行权限，ssh将无法登入，保险权限为700或755，详见这个问题下的讨论：http://unix.stackexchange.com/questions/37164/s
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/11/08/AWS-cannot-log-into-instance/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
+          
         
       
     </div>
@@ -1015,11 +1162,18 @@ pem文件丢失
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-count">8</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
           
 
           
@@ -1096,7 +1250,7 @@ pem文件丢失
 <div class="theme-info">
   Theme -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
+    NexT.Mist
   </a>
 </div>
 
@@ -1161,13 +1315,6 @@ pem文件丢失
 
   
   
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.0.2"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.2"></script>
-
-
 
   
 

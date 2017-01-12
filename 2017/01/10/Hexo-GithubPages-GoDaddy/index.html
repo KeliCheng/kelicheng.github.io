@@ -5,10 +5,10 @@
   
 
 
-<html class="theme-next mist use-motion">
+<html class="theme-next mist use-motion" lang="en">
 <head>
   <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
 
@@ -63,7 +63,7 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
@@ -103,9 +103,10 @@ create CNAME file uder the “source” directory (not the root dir)within the C
 
 
 
-<script type="text/javascript" id="hexo.configuration">
+<script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
+    root: '/',
     scheme: 'Mist',
     sidebar: {"position":"left","display":"post"},
     fancybox: true,
@@ -113,20 +114,29 @@ create CNAME file uder the “source” directory (not the root dir)within the C
     duoshuo: {
       userId: '0',
       author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: "",
+      labels: ""
     }
   };
 </script>
 
 
 
-
   <link rel="canonical" href="http://yoursite.com/2017/01/10/Hexo-GithubPages-GoDaddy/"/>
+
+
+
 
 
   <title> Pointing Hover Domain | Hexo-GithubPages-GoDaddy | Journey. </title>
 </head>
 
-<body itemscope itemtype="//schema.org/WebPage" lang="en">
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
   
 
@@ -147,7 +157,7 @@ create CNAME file uder the “source” directory (not the root dir)within the C
   <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-meta ">
   
 
@@ -158,7 +168,9 @@ create CNAME file uder the “source” directory (not the root dir)within the C
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
-  <p class="site-subtitle"></p>
+    
+      <p class="site-subtitle"></p>
+    
 </div>
 
 <div class="site-nav-toggle">
@@ -233,6 +245,8 @@ create CNAME file uder the “source” directory (not the root dir)within the C
   
 </nav>
 
+
+
  </div>
     </header>
 
@@ -246,13 +260,26 @@ create CNAME file uder the “source” directory (not the root dir)within the C
     
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/10/Hexo-GithubPages-GoDaddy/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Keli Cheng">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/110878850704fec6e3o.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Journey.">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Journey." src="">
+    </span>
+  </span>
 
     
       <header class="post-header">
@@ -271,13 +298,11 @@ create CNAME file uder the “source” directory (not the root dir)within the C
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2017-01-10T16:02:04-06:00" content="2017-01-10">
-              2017-01-10
-            </time>
+            
+
+            
+
+            
           </span>
 
           
@@ -285,9 +310,12 @@ create CNAME file uder the “source” directory (not the root dir)within the C
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2017/01/10/Hexo-GithubPages-GoDaddy/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/01/10/Hexo-GithubPages-GoDaddy/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/01/10/Hexo-GithubPages-GoDaddy/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -299,6 +327,9 @@ create CNAME file uder the “source” directory (not the root dir)within the C
           
 
           
+
+          
+
         </div>
       </header>
     
@@ -335,15 +366,16 @@ create CNAME file uder the “source” directory (not the root dir)within the C
       
     </div>
 
+
     <footer class="post-footer">
       
         <div class="post-tags">
           
-            <a href="/tags/hexo/" rel="tag">#hexo</a>
+            <a href="/tags/hexo/" rel="tag"># hexo</a>
           
-            <a href="/tags/GithubPages/" rel="tag">#GithubPages</a>
+            <a href="/tags/GithubPages/" rel="tag"># GithubPages</a>
           
-            <a href="/tags/GoDaddy/" rel="tag">#GoDaddy</a>
+            <a href="/tags/GoDaddy/" rel="tag"># GoDaddy</a>
           
         </div>
       
@@ -357,6 +389,8 @@ create CNAME file uder the “source” directory (not the root dir)within the C
               </a>
             
           </div>
+
+          <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
@@ -380,7 +414,7 @@ create CNAME file uder the “source” directory (not the root dir)within the C
     </div>
   </div>
 
-
+          
           </div>
           
 
@@ -416,18 +450,9 @@ create CNAME file uder the “source” directory (not the root dir)within the C
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel ">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/110878850704fec6e3o.jpg"
                alt="Keli Cheng" />
@@ -435,12 +460,15 @@ create CNAME file uder the “source” directory (not the root dir)within the C
           <p class="site-description motion-element" itemprop="description"></p>
         </div>
         <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">8</span>
-              <span class="site-state-item-name">posts</span>
-            </a>
-          </div>
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
 
           
             <div class="site-state-item site-state-categories">
@@ -494,19 +522,11 @@ create CNAME file uder the “source” directory (not the root dir)within the C
         
         
 
+        
+
+
       </section>
 
-      
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-            
-              
-            
-            
-              <p class="post-toc-empty">This post does not have a Table of Contents</p>
-            
-          </div>
-        </section>
       
 
     </div>
@@ -524,21 +544,12 @@ create CNAME file uder the “source” directory (not the root dir)within the C
   &copy; 
   <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
-    <i class="fa fa-heart"></i>
+    <i class="fa fa-"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Keli Cheng</span>
 </div>
 
-<div class="powered-by">
-  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
-</div>
 
-<div class="theme-info">
-  Theme -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
-  </a>
-</div>
 
         
 
@@ -568,6 +579,7 @@ create CNAME file uder the “source” directory (not the root dir)within the C
 
 
   
+
 
 
 
@@ -624,10 +636,11 @@ create CNAME file uder the “source” directory (not the root dir)within the C
     <script type="text/javascript">
       var disqus_shortname = 'liebesbrief';
       var disqus_identifier = '2017/01/10/Hexo-GithubPages-GoDaddy/';
-      var disqus_title = "Pointing Hover Domain | Hexo-GithubPages-GoDaddy";
-      var disqus_url = 'http://yoursite.com/2017/01/10/Hexo-GithubPages-GoDaddy/';
 
-      function run_disqus_script(disqus_script){
+      var disqus_title = "Pointing Hover Domain | Hexo-GithubPages-GoDaddy";
+
+
+      function run_disqus_script(disqus_script) {
         var dsq = document.createElement('script');
         dsq.type = 'text/javascript';
         dsq.async = true;
@@ -636,6 +649,7 @@ create CNAME file uder the “source” directory (not the root dir)within the C
       }
 
       run_disqus_script('count.js');
+
       
         var disqus_config = function () {
             this.page.url = disqus_url;
@@ -644,8 +658,14 @@ create CNAME file uder the “source” directory (not the root dir)within the C
         };
         run_disqus_script('embed.js');
       
+
     </script>
   
+
+
+
+
+
 
 
 

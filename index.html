@@ -344,7 +344,7 @@
 123.main&#123;  background: #222222; // 或替代为image&#125;
 修改内容背景色
 123.content-wrap &#123;  background: #222222; &#125;
-修改字体/themes/next/sou
+修改字体/themes/next/source/css/_variables/base.styl$font-family-chinese      = &quot;Songti TC&quot;, &quot;Adobe Song Std&
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -726,7 +726,7 @@ StanfordU CS193P Spring 2016finished projects:Graphing CalculatorSmashtagBreakou
 
 create CNAME file uder the “source” directory (not the root dir)within the CNAME file, write “http://example.com”save it, generate (hexo g) and deploy (hexo d) to Github Pages 
 
-go to GoDaddy DNS Manager of domain “
+go to GoDaddy DNS Manager of domain “example.com”add new records: •    Hostname: @, Record Type: A, Value: 192.30.252.153 •    Hostname: 
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -852,7 +852,7 @@ go to GoDaddy DNS Manager of domain “
         
           
           Issue: cs193p Assignment 3, the simulator is blank when calling AxesDrawer
-Intro: I’m taking the Standford University’s cs193p course, Developing iOS 9 Apps with Swift, through iTunesU. The course is for Spring 2016, but Swift has updated to 3.0 in October. Thus parts of the source code provided nee
+Intro: I’m taking the Standford University’s cs193p course, Developing iOS 9 Apps with Swift, through iTunesU. The course is for Spring 2016, but Swift has updated to 3.0 in October. Thus parts of the source code provided need to be updated manually. Most of this correction can be done with Xcode’s warning and suggestion, b
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1234,7 +1234,12 @@ edit the scaffolds/post.md (post template)
 
 12345title: &#123;&#123;title&#125;&#125;date: &#123;&#123;date&#125;&#125;tags: categories: ---
 
-writing a new post with headercate
+writing a new post with headercategories: projects
+edit themes/_config.yml
+
+123menu: 	home: /	projects: /categories/projects
+
+setting 
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1369,7 +1374,9 @@ pem文件丢失
 
 新建Instance B，基本设置与A相同。
 如果丢失 pem 文件，新建 key-pair 并下载pem文件
-stop I
+stop Instance A; 进入 volumn tab –&gt; detach 
+volumn attach 到 B
+登入Instance B；在 root directory 下新建 mount poi
           ...
           <!--noindex-->
           <div class="post-button text-center">

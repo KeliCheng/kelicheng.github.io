@@ -86,7 +86,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Journey.">
-<meta property="og:url" content="http://yoursite.com/tags/Xcode/index.html">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name" content="Journey.">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Journey.">
@@ -117,13 +117,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/Xcode/"/>
+  <link rel="canonical" href="http://yoursite.com/page/2/"/>
 
 
 
 
 
-  <title> Tag: Xcode | Journey. </title>
+  <title> Journey. </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -144,7 +144,9 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left 
+   page-home 
+ ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -245,47 +247,153 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        Xcode
-        <small>Tag</small>
-      </h2>
-    </div>
-
+<canvas id="c_n20" width="1704" height="919" style="position: fixed; top: 0px; left: 0px; z-index: -1; opacity: 0.5;"></canvas>
+  <section id="posts" class="posts-expand">
     
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
 
-      <h1 class="post-title">
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/08/AWS-cannot-log-into-instance/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Keli Cheng">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/110878850704fec6e3o.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Journey.">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Journey." src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2016/12/15/cs193p-AxesDrawer/" itemprop="url">
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
               
-                <span itemprop="name">cs193p | AxesDrawer to Swift 3.0</span>
+                
+                <a class="post-title-link" href="/2016/11/08/AWS-cannot-log-into-instance/" itemprop="url">
+                  AWS | 无法登入 Instance 解决办法
+                </a>
               
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/11/08/AWS-cannot-log-into-instance/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/08/AWS-cannot-log-into-instance/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          适用类型：
+
+pem文件丢失
+擅改home directory权限导致无法登录 （Note: 如果group拥有对home的写入及运行权限，ssh将无法登入，保险权限为700或755，详见这个问题下的讨论：http://unix.stackexchange.com/questions/37164/ssh-and-home-directory-permissions）
+
+已有 Instance A［Permission denied (publickey)］
+解决办法：
+
+新建Instance B，基本设置与A相同。
+如果丢失 pem 文件，新建 key-pair 并下载pem文件
+stop Instance A; 进入 volumn tab –&gt; detach 
+volumn attach 到 B
+登入Instance B；在 root directory 下新建 mount poi
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/11/08/AWS-cannot-log-into-instance/#more" rel="contents">
+              Read more &raquo;
             </a>
+          </div>
+          <!--/noindex-->
         
-      </h1>
+      
+    </div>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-12-15T14:38:26-06:00"
-              content="2016-12-15" >
-          12-15
-        </time>
-      </div>
+    <div>
+      
+    </div>
 
-    </header>
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
   </article>
 
 
     
-  </div>
+  </section>
 
   
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
+
 
 
           </div>
@@ -493,7 +601,7 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'liebesbrief';
-      var disqus_identifier = 'tags/Xcode/index.html';
+      var disqus_identifier = 'page/2/index.html';
 
       var disqus_title = "";
 

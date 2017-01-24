@@ -339,27 +339,39 @@
       
         
           
-          适用类型：
+            <p><strong>适用类型：</strong></p>
+<ul>
+<li>pem文件丢失</li>
+<li>擅改home directory权限导致无法登录 （<em>Note: 如果group拥有对home的写入及运行权限，ssh将无法登入，保险权限为700或755，详见这个问题下的讨论：<a href="http://unix.stackexchange.com/questions/37164/ssh-and-home-directory-permissions" target="_blank" rel="external">http://unix.stackexchange.com/questions/37164/ssh-and-home-directory-permissions</a></em>）</li>
+</ul>
+<p>已有 Instance A<br>［Permission denied (publickey)］</p>
+<p><strong>解决办法：</strong></p>
+<ol>
+<li>新建Instance B，基本设置与A相同。</li>
+<li>如果丢失 pem 文件，新建 key-pair 并下载pem文件</li>
+<li>stop Instance A; 进入 volumn tab –&gt; detach </li>
+<li>volumn attach 到 B</li>
+<li>登入Instance B；在 root directory 下新建 mount point (ex: /vol-a)  并mount </li>
+</ol>
+<figure class="highlight plain"><figcaption><span>[instance b]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo mkdir /vol-a</div><div class="line">sudo mount /dev/xvdj /vol-a</div></pre></td></tr></table></figure>
+<p><em>Note：volumn可能保存在 xvdj、xvdj1、xvda、sxda1、或 sdf </em></p>
+<ol>
+<li><p>进入 vol-a 作出所需修改<br> *丢失pem文件：将正确的ssh key添加到：/vol-a/home/ubuntu/.ssh/authorized_keys</p>
+<ul>
+<li>更改home dir （或者 ec2-user）的权限至700 </li>
+<li>etc. </li>
+</ul>
+</li>
+<li><p>unmount </p>
+</li>
+</ol>
+<figure class="highlight plain"><figcaption><span>umount</span><a href="/vol-a">link</a></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo rmdir /vol-a</div></pre></td></tr></table></figure>
+<ol>
+<li>deatch volumn from Instance B; Attach back to Instance A.<br>Start Instance A;<br>Terminate Instance B. </li>
+</ol>
+<p>参考：<br><a href="https://alestic.com/2011/02/ec2-fix-ebs-root/" target="_blank" rel="external">https://alestic.com/2011/02/ec2-fix-ebs-root/</a><br><a href="http://d2930476l2fsmh.cloudfront.net/LostKeypairRecoveryOfLinuxInstance.mp4" target="_blank" rel="external">http://d2930476l2fsmh.cloudfront.net/LostKeypairRecoveryOfLinuxInstance.mp4</a><br><a href="https://forums.aws.amazon.com/message.jspa?messageID=334402" target="_blank" rel="external">https://forums.aws.amazon.com/message.jspa?messageID=334402</a></p>
 
-pem文件丢失
-擅改home directory权限导致无法登录 （Note: 如果group拥有对home的写入及运行权限，ssh将无法登入，保险权限为700或755，详见这个问题下的讨论：http://unix.stackexchange.com/questions/37164/ssh-and-home-directory-permissions）
-
-已有 Instance A［Permission denied (publickey)］
-解决办法：
-
-新建Instance B，基本设置与A相同。
-如果丢失 pem 文件，新建 key-pair 并下载pem文件
-stop Instance A; 进入 volumn tab –&gt; detach 
-volumn attach 到 B
-登入Instance B；在 root directory 下新建 mount poi
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/11/08/AWS-cannot-log-into-instance/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
         
       
     </div>

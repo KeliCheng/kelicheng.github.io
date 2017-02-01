@@ -84,16 +84,22 @@
 
 
 
-<meta name="description" content="window.location.href=&apos;SimpleSender-Twitter://oauth-callback&apos;;">
+<meta name="description" content="var redict = window.location.href.replace(&quot;http://kelicheng.github.io/simple-sender/&quot;, &quot;SimpleSender-Twitter://oauth-callback&quot;);
+document.getElementById(&quot;demo&quot;).innerHTML = 
+&quot;Page location is: &quot; + re">
 <meta property="og:type" content="website">
-<meta property="og:title" content="simple-sender">
+<meta property="og:title" content="Journey.">
 <meta property="og:url" content="http://yoursite.com/simple-sender/index.html">
 <meta property="og:site_name" content="Journey.">
-<meta property="og:description" content="window.location.href=&apos;SimpleSender-Twitter://oauth-callback&apos;;">
-<meta property="og:updated_time" content="2017-01-31T23:45:11.000Z">
+<meta property="og:description" content="var redict = window.location.href.replace(&quot;http://kelicheng.github.io/simple-sender/&quot;, &quot;SimpleSender-Twitter://oauth-callback&quot;);
+document.getElementById(&quot;demo&quot;).innerHTML = 
+&quot;Page location is: &quot; + re">
+<meta property="og:updated_time" content="2017-02-01T03:14:28.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="simple-sender">
-<meta name="twitter:description" content="window.location.href=&apos;SimpleSender-Twitter://oauth-callback&apos;;">
+<meta name="twitter:title" content="Journey.">
+<meta name="twitter:description" content="var redict = window.location.href.replace(&quot;http://kelicheng.github.io/simple-sender/&quot;, &quot;SimpleSender-Twitter://oauth-callback&quot;);
+document.getElementById(&quot;demo&quot;).innerHTML = 
+&quot;Page location is: &quot; + re">
 
 
 
@@ -131,7 +137,7 @@
   
 
   
-    simple-sender | Journey.
+     | Journey.
   
 </title>
 </head>
@@ -259,7 +265,7 @@
   <div id="posts" class="posts-expand">
   <header class="post-header">
 
-	<h2 class="post-title" itemprop="name headline">simple-sender</h2>
+	<h2 class="post-title" itemprop="name headline"></h2>
 
 
 
@@ -267,9 +273,13 @@
 
     
     
-      <script type="text/javascript">
-window.location.href='SimpleSender-Twitter://oauth-callback';
+      <script>
+var redict = window.location.href.replace("http://kelicheng.github.io/simple-sender/", "SimpleSender-Twitter://oauth-callback");
+document.getElementById("demo").innerHTML = 
+"Page location is: " + redict;
+window.location.assign(redict)
 </script>
+
 
 
 
@@ -495,7 +505,7 @@ window.location.href='SimpleSender-Twitter://oauth-callback';
       var disqus_shortname = 'liebesbrief';
       var disqus_identifier = 'simple-sender/index.html';
 
-      var disqus_title = "simple-sender";
+      var disqus_title = "";
 
 
       function run_disqus_script(disqus_script) {

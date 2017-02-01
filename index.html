@@ -259,6 +259,137 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/01/weibo-oauth/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Keli Cheng">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/110878850704fec6e3o.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Journey.">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Journey." src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/02/01/weibo-oauth/" itemprop="url">
+                  使用OAuthSwift完成微博OAuth2.0授权
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/02/01/weibo-oauth/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/02/01/weibo-oauth/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>昨天关于新浪的授权鼓捣了一天才弄好，所以写一个这个过程。主要用到的是<a href="https://github.com/OAuthSwift/OAuthSwift" target="_blank" rel="external">OAuthSwift</a>（一个适用于iOS／macOS等的OAuth库，支持1.0和2.0）<br>另外关于整个授权的过程，<a href="https://www.cs.cmu.edu/~lingwang/weiboguide/" target="_blank" rel="external">Practical Guide for using Sina Weibo’s API</a> 也很有帮助。</p>
+<ol>
+<li>新浪开发者，申请App，填写认证和App资料（略）</li>
+<li>在project中导入OAuthSwift库（略）</li>
+<li>授权 doOAuthWeibo</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div></pre></td><td class="code"><pre><div class="line">import OAuthSwift</div><div class="line">import AppKit</div><div class="line">class ViewController: OAuthViewController &#123;</div><div class="line">    var oauthswift: OAuthSwift?</div><div class="line">&#125;</div><div class="line"></div><div class="line">extension ViewController &#123;</div><div class="line">       override func viewDidLoad() &#123;</div><div class="line">        super.viewDidLoad()</div><div class="line">        doOAuthWeibo()</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    // MARK: Weibo</div><div class="line">    func doOAuthWeibo()&#123;</div><div class="line">    // 注意这里使用的是OAuth2Swift，因为微博使用的也是OAuth2.0</div><div class="line">        let oauthswift = OAuth2Swift(</div><div class="line">            consumerKey:    &quot;XXXXXXX&quot;,</div><div class="line">            consumerSecret: &quot;XXXXXXXXXXXXXXXXXXXXXXXX&quot;,</div><div class="line">            authorizeUrl:    &quot;https://api.weibo.com/oauth2/authorize&quot;,</div><div class="line">            accessTokenUrl:  &quot;https://api.weibo.com/oauth2/access_token&quot;,</div><div class="line">            responseType: &quot;code&quot;</div><div class="line">        )</div><div class="line">        let state = generateState(withLength: 20)</div><div class="line">        self.oauthswift = oauthswift</div><div class="line">        oauthswift.allowMissingStateCheck = true</div><div class="line">        oauthswift.authorizeURLHandler = OAuthSwiftOpenURLExternally.sharedInstance</div><div class="line">        // 这里的callback URL一定要与在微博APP页面填写的一致</div><div class="line">        let _ = oauthswift.authorize(withCallbackURL: URL(string: &quot;http://your/callback/url&quot;)!,</div><div class="line">                                          scope: &quot;full&quot;,</div><div class="line">                                          state: state,</div><div class="line">                                          success: &#123; (credential, response, parameters) in</div><div class="line">                                            print(&quot;OAuth successful&quot;)</div><div class="line">                                            self.weibo(oauthswift, token: credential.oauthToken) // post a weibo for testing </div><div class="line">        &#125;) &#123; (error) in</div><div class="line">            print(error.description)</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    // post a weibo for testing </div><div class="line">    func weibo(_ oauthswift: OAuth2Swift, token: String) &#123;</div><div class="line">        print(&quot;weibo&quot;)</div><div class="line">        let param = [</div><div class="line">            &quot;format&quot;: &quot;html&quot;,</div><div class="line">            &quot;status&quot;: &quot;Hello, world! \(arc4random())&quot;,</div><div class="line">            &quot;access_token&quot;: token</div><div class="line">        ]</div><div class="line">        let _ = oauthswift.client.post(&quot;https://api.weibo.com/2/statuses/update.json&quot;, parameters: param, success: &#123; (OAuthSwiftResponse) in</div><div class="line">            print(&quot;posted&quot;)</div><div class="line">        &#125;, failure: &#123; (OAuthSwiftError) in</div><div class="line">            print(&quot;post failed&quot;)</div><div class="line">            print(OAuthSwiftError)</div><div class="line">        &#125;)  </div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    // generate random state </div><div class="line">    public func generateState(withLength len : Int) -&gt; String &#123;</div><div class="line">        let letters = &quot;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789&quot;</div><div class="line">        let length = UInt32(letters.characters.count)</div><div class="line">        </div><div class="line">        var randomString = &quot;&quot;</div><div class="line">        for _ in 0..&lt;len &#123;</div><div class="line">            let rand = arc4random_uniform(length)</div><div class="line">            let idx = letters.index(letters.startIndex, offsetBy: Int(rand))</div><div class="line">            let letter = letters.characters[idx]</div><div class="line">            randomString += String(letter)</div><div class="line">        &#125;</div><div class="line">        return randomString</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>关于callback URL<br>因为微博只接受http格式的URL，所以我在自己博客新建了一个页面作为callback URL（<a href="http://kelicheng.github.io/simple-sender/）" target="_blank" rel="external">http://kelicheng.github.io/simple-sender/）</a><br>在这个页面放一段代码重新定向到App中。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">var query = window.location.href.replace(&quot;http://your/callback/url&quot;, &quot;YourAppName://oauth-callback/&quot;);</div><div class="line">var url = &quot;SimpleSender-Twitter://oauth-callback/&quot; + query</div><div class="line">window.location.assign(query)</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>此外还要<a href="https://github.com/OAuthSwift/OAuthSwift#how-to" target="_blank" rel="external">在project中设置URL Schemes</a>:<br>Targets -&gt; (YourAPP) -&gt; Info -&gt; URL Types -&gt; Add -&gt; URL Schemes = <strong>YourAppName</strong></p>
+<p>OAuthSwift的作者还给出了Ruby和PHP的代码示例，以及另一种使用内置浏览器授权的解决方案。详见：<a href="https://github.com/OAuthSwift/OAuthSwift/wiki/API-with-only-HTTP-scheme-into-callback-URL" target="_blank" rel="external">https://github.com/OAuthSwift/OAuthSwift/wiki/API-with-only-HTTP-scheme-into-callback-URL</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/23/simple-sender/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1362,139 +1493,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/08/log/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Keli Cheng">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/110878850704fec6e3o.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Journey.">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Journey." src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/08/log/" itemprop="url">
-                  Log
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/11/08/log/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/08/log/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>2016.11.07 built blog with Hexo; theme: NexT</p>
-<p>2017.01.11 create new [projects] page by setting it as one of the categories </p>
-<ol>
-<li>edit the scaffolds/post.md (post template)</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">title: &#123;&#123;title&#125;&#125;</div><div class="line">date: &#123;&#123;date&#125;&#125;</div><div class="line">tags: </div><div class="line">categories: </div><div class="line">---</div></pre></td></tr></table></figure>
-<ol>
-<li>writing a new post with header<br><code>categories: projects</code></li>
-<li>edit themes/_config.yml</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">menu: </div><div class="line">	home: /</div><div class="line">	projects: /categories/projects</div></pre></td></tr></table></figure>
-<ol>
-<li>setting page icon, language, etc.<br>ref: <a href="">https://www.zhihu.com/question/33324071</a></li>
-</ol>
-<p>2017.01.12 change NeXT theme to be “mist”, works on localhost but not on the web<br>fixed by updating theme (git pull)<br>another option: hexo clean </p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1542,7 +1540,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -1560,7 +1558,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
